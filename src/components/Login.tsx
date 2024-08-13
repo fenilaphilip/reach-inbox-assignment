@@ -1,5 +1,6 @@
 import config from "../config";
 import classes from "./login.module.css";
+import googleIcon from "../assests/googleIcon.svg";
 
 export default function Login() {
   return (
@@ -11,7 +12,14 @@ export default function Login() {
           </h1>
           <div className="text-xs leading-tight tracking-tight text-white md:text-xl text-center bg-slate-950 border-r-white px-3 py-4  border-2">
             <a href={config.googleLogin}>
-              <button>Sign Up with Google</button>
+              <button>
+                <img
+                  src={googleIcon}
+                  alt="googleIcon"
+                  className="inline-block px-2"
+                />
+                Sign Up with Google
+              </button>
             </a>
           </div>
           <div className="text-xs font-bold leading-tight tracking-tight text-white md:text-xl text-center bg-blue-900 mx-16 py-4">

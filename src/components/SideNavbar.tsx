@@ -8,7 +8,7 @@ import { IoIosSend } from "react-icons/io";
 
 export default function SideNavbar() {
   return (
-    <div className="p-4 dark:bg-[#101113] bg-white overflow-y-scroll no-scrollbar h-screen w-14 flex flex-col justify-between items-center py-6 border-r-2 dark:border-[#343A40] border-[#E0E0E0] left-0 top-0 fixed z-10">
+    <div className="flex flex-col justify-between p-4 dark:bg-[#101113] bg-white h-screen w-14  items-center py-6 border-r-2 dark:border-[#343A40] border-[#E0E0E0] left-0 top-0 fixed z-10">
       <div className="rounded-xl">
         <img
           src="./Logo.png"
