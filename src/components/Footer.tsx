@@ -1,9 +1,9 @@
+import classes from "./footer.module.css";
+
 export default function Footer() {
   return (
-    <footer className="w-full static mt-10 bottom-0">
-      <p className="text-white flex justify-center">
-        2024 Reachinbox. All rights reserved
-      </p>
+    <footer className={classes.footer}>
+      <p className="text-white">2024 Reachinbox. All rights reserved</p>
     </footer>
   );
 }
