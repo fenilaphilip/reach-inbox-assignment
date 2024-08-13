@@ -4,7 +4,11 @@ export default function Header() {
   return (
     <header className={classes.header}>
       <div className="flex flex-wrap ">
-        <img src="./LogoImg.png" alt="logo" className="w-full h-16" />
+        <img
+          src="./CompanyName.png"
+          alt="companyName"
+          className="w-full h-16"
+        />
       </div>
     </header>
   );
