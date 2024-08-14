@@ -22,6 +22,7 @@ export default function Inbox() {
     axios.get(url + list_all_path).then((response) => {
       setFetchedData(response.data.data);
       console.log(`Fetched data is ${JSON.stringify(response.data.data)}`);
+      setCurrentMail(response.data.data[0]);
     });
   }, []);
 
@@ -34,7 +35,7 @@ export default function Inbox() {
   }
 
   return (
-    <div className="flex flex-row mt-16 ml-12">
+    <div className="flex flex-row mt-16 ml-12 h-screen">
       <div className="border-r-2 h-full overflow-y-scroll no-scrollbar">
         <div className="px-4 pt-4 flex justify-between">
           <div className="px-4 ">
