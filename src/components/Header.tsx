@@ -3,7 +3,7 @@ import classes from "./header.module.css";
 export default function Header() {
   return (
     <header className={classes.header}>
-      <div className="flex flex-wrap ">
+      <div className="flex flex-wrap mt-40">
         <img
           src="./CompanyName.png"
           alt="companyName"
