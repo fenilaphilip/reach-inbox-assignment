@@ -1,6 +1,9 @@
-import config from "../config";
 import classes from "./login.module.css";
 import googleIcon from "../assests/googleIcon.svg";
+
+const apiBaseURL = process.env.REACT_APP_API_BASE_URL ?? "";
+const appBaseURL = process.env.REACT_APP_UI_BASE_URL ?? "";
+const googleLogin: string = `${apiBaseURL}/auth/google-login?redirect_to=${appBaseURL}/onebox`;
 
 export default function Login() {
   return (
@@ -11,7 +14,7 @@ export default function Login() {
             Create new account
           </h1>
           <div className="text-xs leading-tight tracking-tight text-white md:text-xl text-center bg-slate-950 border-r-white px-3 py-4  border-2">
-            <a href={config.googleLogin}>
+            <a href={googleLogin}>
               <button>
                 <img
                   src={googleIcon}
