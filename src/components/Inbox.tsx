@@ -1,9 +1,38 @@
+import { useState, useEffect } from "react";
 import { CiSearch } from "react-icons/ci";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { TbReload } from "react-icons/tb";
 import MailReadingSection from "./MailReadingSection";
+import axios from "axios";
+import { useLocation } from "react-router-dom";
+import LoadMails from "./LoadMails";
+
+const url: string = process.env.REACT_APP_API_BASE_URL ?? "";
+const list_all_path = "/onebox/list";
 
 export default function Inbox() {
+  const [fetchedData, setFetchedData] = useState([]);
+  const [currentMail, setCurrentMail] = useState();
+
+  const search = useLocation().search;
+  const token = new URLSearchParams(search).get("token");
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+  useEffect(() => {
+    axios.get(url + list_all_path).then((response) => {
+      setFetchedData(response.data.data);
+      console.log(`Fetched data is ${JSON.stringify(response.data.data)}`);
+    });
+  }, []);
+
+  function showSelectedMail(id: number) {
+    const currentEmail = Object.values(fetchedData).find(
+      (mail) => mail["threadId"] === id
+    );
+    setCurrentMail(currentEmail);
+    console.log("currentmail ", currentMail);
+  }
+
   return (
     <div className="flex flex-row mt-16 ml-12">
       <div className="border-r-2 h-full overflow-y-scroll no-scrollbar">
@@ -31,18 +60,29 @@ export default function Inbox() {
             <CiSearch className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
           </div>
           <div className="flex justify-between py-4">
-            <div className="dark:text-white text-black">
-              <span className="dark:bg-[#1e2022] bg-[#fffcfc] text-[#131c3e] px-2 py-1 rounded-3xl"></span>
-              New Replies
+            <div className="dark:text-white text-black ">
+              <span className="dark:bg-[#1e2022] bg-[#c1bebe] text-blue-800 px-2 py-1  rounded-3xl">
+                28
+              </span>
+              <span className="ml-2"> New Replies</span>
             </div>
             <div className="flex items-center dark:text-white text-black ">
               Newest <RiArrowDropDownLine className="ml-3 text-xl" />
             </div>
           </div>
         </div>
+        {fetchedData &&
+          fetchedData.map((email: any) => (
+            <LoadMails
+              key={email.id}
+              threadId={email.threadId}
+              fromEmail={email.fromEmail}
+              subject={email.subject}
+              userSelectedMail={showSelectedMail}
+            />
+          ))}
       </div>
-
-      <MailReadingSection />
+      <MailReadingSection mail={currentMail} />
     </div>
   );
 }
