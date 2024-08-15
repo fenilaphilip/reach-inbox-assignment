@@ -1,4 +1,4 @@
-import { DUMMY_LEADDETAILS } from "../DummyData";
+import { DUMMY_LEADDETAILS } from "../data";
 
 export default function LeadDetails() {
   return (

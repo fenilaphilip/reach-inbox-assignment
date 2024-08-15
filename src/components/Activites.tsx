@@ -1,4 +1,4 @@
-import { DUMMY_ACTIVITES } from "../DummyData";
+import { DUMMY_ACTIVITES } from "../data";
 import { IoIosMail } from "react-icons/io";
 
 export default function Activites() {
