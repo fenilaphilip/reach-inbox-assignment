@@ -9,19 +9,17 @@ export default function OneboxList() {
   const [view, setView] = useState("");
 
   return (
-    <div className="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
-      <div className="flex-row w-screen">
-        <SideNavbar tabSelected={setView} />
-        <div className="flex-col">
-          <Topbar />
-          {view === "" && <DefaultView />}
-          {view === "/" && <DefaultView />}
-          {view === "/search" && <DefaultView />}
-          {view === "/mail" && <DefaultView />}
-          {view === "/inbox" && <Inbox />}
-          {view === "/send" && <DefaultView />}
-        </div>
-      </div>
-    </div>
+    <>
+      <Topbar />
+      <SideNavbar tabSelected={setView} />
+      {view === "" && <DefaultView />}
+      {view === "/" && <DefaultView />}
+      {view === "/search" && <DefaultView />}
+      {view === "/mail" && <Inbox />}
+      {view === "/inbox" && <Inbox />}
+      {view === "/send" && <Inbox />}
+      {view === "/categories" && <DefaultView />}
+      {view === "/usage" && <DefaultView />}
+    </>
   );
 }
