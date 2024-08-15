@@ -18,6 +18,7 @@ export default function SideNavbar({
           {NAV_ITEMS.map((item) => {
             return (
               <div
+                key={item.btnCalled}
                 className="text-2xl p-2 m-2 hover:bg-orange-100 rounded-lg"
                 title={item.btnCalled}
                 onClick={() => tabSelected(item.path)}

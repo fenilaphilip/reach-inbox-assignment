@@ -28,8 +28,8 @@ export default function RecentMail({ mail }: any) {
             </div>
             <div className="text-sm dark:text-[#7F7F7F] text-[#637381]">
               {new DateFormatter(mail["sentAt"]).formatDateAndTime(
-                "Australia/Sydney",
-                "en-AU"
+                "Asia/Kolkata",
+                "en-IN"
               )}
             </div>
           </div>

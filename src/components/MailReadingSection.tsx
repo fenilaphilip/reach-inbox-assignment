@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { VscCircleFilled } from "react-icons/vsc";
-import { RiArrowDropDownLine } from "react-icons/ri";
+import { SlArrowDown } from "react-icons/sl";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 import RecentMail from "./RecentMail";
@@ -64,9 +64,9 @@ function Headerbar() {
       </div>
       <div className="flex items-center space-x-3">
         <div className="flex dark:bg-[#1F1F1F] bg-white border dark:border-[#343A40] items-center text-black dark:text-white rounded-md py-1 px-3 text-sm">
-          <VscCircleFilled className="text-orange-500 text-xl" />
+          <VscCircleFilled className="text-orange-500 text-xl mr-2" />
           Meeting Completed
-          <RiArrowDropDownLine className="ml-2" size="2em" />
+          <SlArrowDown className="ml-2" />
         </div>
         <MoveMenu />
         <div className="dark:bg-[#1F1F1F] border bg-white text-black dark:text-white  dark:border-[#343A40] rounded-md pt-2 pb-3 px-3 text-sm">
