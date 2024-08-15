@@ -35,9 +35,9 @@ export default function Inbox() {
   }
 
   return (
-    <div className="flex flex-row mt-16 ml-12 h-screen dark:bg-[#1d2126] bg-[#e9e9e9]  text-black dark:text-white ">
-      <div className="border-r-2 border-[#e0dfdf] h-full overflow-y-scroll no-scrollbar  bg-slate-50 dark:bg-gray-950 dark:border-[#373636]">
-        <InboxHeader />
+    <div className="flex flex-row mt-16 ml-12 h-screen dark:bg-stone-950 bg-slate-50  text-black dark:text-white ">
+      <div className="border-r-2 border-[#e0dfdf] h-full overflow-y-scroll no-scrollbar  bg-white dark:bg-stone-950 dark:border-[#373636]">
+        <InboxHeader totalMail={fetchedData.length} />
         {fetchedData &&
           fetchedData.map((email: any) => (
             <LoadMails
@@ -54,7 +54,7 @@ export default function Inbox() {
   );
 }
 
-function InboxHeader() {
+function InboxHeader({ totalMail }: { totalMail: number }) {
   return (
     <>
       <div className="px-4 pt-4 ml-4 flex justify-between">
@@ -63,10 +63,13 @@ function InboxHeader() {
             All Inbox(s)
           </div>
           <div className="dark:text-[#7a7878] text-[#7a7878] font-normal">
+            <strong className="text-black dark:text-white mr-2">
+              {totalMail}/25
+            </strong>
             Inboxes selected
           </div>
         </div>
-        <div className="w-8 p-2 m-3  bg-white border-gray-200 dark:bg-slate-500 mr-4 rounded-lg cursor-pointer">
+        <div className="w- p-2 m-3 border-2 bg-white border-gray-700 dark:bg-slate-700 mr-4 rounded-lg cursor-pointer">
           <TbReload className="text-black dark:text-white" />
         </div>
       </div>
@@ -80,13 +83,13 @@ function InboxHeader() {
         </div>
         <div className="flex justify-between py-4">
           <div className="dark:text-white text-black ">
-            <span className="dark:bg-[#1e2022] bg-[#c1bebe] text-blue-800 px-2 py-1  rounded-3xl">
-              28
+            <span className="dark:bg-[#1e2022] bg-[#c1bebe] text-blue-800 font-bold px-2 py-1  rounded-3xl">
+              {totalMail}
             </span>
-            <span className="ml-2"> New Replies</span>
+            <span className="ml-2 font-bold"> New Replies</span>
           </div>
-          <div className="flex items-center dark:text-white text-black ">
-            Newest <RiArrowDropDownLine className="ml-3 text-xl" />
+          <div className="flex items-center dark:text-white text-black font-bold">
+            Newest <RiArrowDropDownLine className="text-2xl" />
           </div>
         </div>
       </div>
