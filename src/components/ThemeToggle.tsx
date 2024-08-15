@@ -24,8 +24,8 @@ export default function ThemeToggle() {
             className="sr-only"
           />
 
-          <div className="block h-8 w-14 rounded-full bg-[#c6c7cb]"></div>
-          <div className="dot absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition"></div>
+          <div className="block h-6 w-12 rounded-full bg-[#c6c7cb]"></div>
+          <div className="dot absolute left-1 top-1 h-4 w-4 rounded-full bg-white transition"></div>
         </div>
       </label>
     </>

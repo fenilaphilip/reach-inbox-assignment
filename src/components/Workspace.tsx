@@ -1,16 +1,16 @@
 import { RiArrowDropDownLine } from "react-icons/ri";
 
-export default function WorkspaceDropdown() {
+export default function Workspace() {
   return (
     <>
       <button
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
-        className="font-medium text-xl px-5 py-2.5 text-center inline-flex items-center"
+        className="font-medium text-xl mx-2 py-2.5 text-center inline-flex items-center"
         type="button"
       >
         Tim's Workspace
-        <RiArrowDropDownLine />
+        <RiArrowDropDownLine className="text-4xl mt-1" />
       </button>
       <div
         id="dropdown"
