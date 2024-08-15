@@ -7,6 +7,11 @@ import { IoIosSend } from "react-icons/io";
 import { MdBarChart } from "react-icons/md";
 import { FiSend } from "react-icons/fi";
 import { IoIosMailOpen } from "react-icons/io";
+import { MdMarkunreadMailbox } from "react-icons/md";
+import { MdEdit } from "react-icons/md";
+import { TiUserDelete } from "react-icons/ti";
+import { IoMdClock } from "react-icons/io";
+import { MdDelete } from "react-icons/md";
 
 export const NAV_ITEMS = [
     {
@@ -47,6 +52,29 @@ export const NAV_ITEMS = [
     },
 
 ]
+
+export const MENU_ITEMS = [
+    {
+        item: "Mark as unread",
+        icon: MdMarkunreadMailbox
+    },
+    {
+        item: "Edit Lead",
+        icon: MdEdit
+    },
+    {
+        item: "Remove lead",
+        icon: TiUserDelete
+    },
+    {
+        item: "Set reminder",
+        icon: IoMdClock
+    }, {
+        item: "Delete",
+        icon: MdDelete
+    }
+]
+
 
 
 export const DUMMY_LEADDETAILS = {
