@@ -34,7 +34,7 @@ export default function LoadMails({
           </div>
         </div>
         <div className="py-2 dark:text-[#E1E0E0] text-gray-600 font-normal">
-          {mailSubject(subject, 10)}
+          {mailSubject(subject, 8)}
         </div>
         <div className="flex">
           <div className="dark:bg-[#222426] bg-[#F0F0F0] px-3 py-1 rounded-2xl text-[#57E0A6] text-sm flex items-center">
