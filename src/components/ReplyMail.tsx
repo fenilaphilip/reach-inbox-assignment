@@ -5,7 +5,7 @@ import { FaEye } from "react-icons/fa";
 
 export default function ReplyMail({ onClose }: { onClose: () => void }) {
   return (
-    <div className=" mx-5 w-2/2 h-2/4 rounded-lg border border-[#41464B]">
+    <div className=" mx-5 w-2/2 rounded-lg border border-[#41464B]">
       <div className="flex justify-between items-center px-4 rounded-t-lg py-2 border-b bg-[#b0b0b0] border-[#41464B]">
         <div className="pl-4 text-sm">Reply</div>
         <div onClick={() => onClose()}>
@@ -45,17 +45,17 @@ export default function ReplyMail({ onClose }: { onClose: () => void }) {
         />
       </div>
 
-      <div className="flex text-sm py-2 border-b border-[#41464B] px-4 pr-8 pt-8 h-2/3">
+      <div className="flex text-sm py-2 border-b border-[#41464B] px-4 pr-8 pt-4 h-80">
         <textarea
           className="bg-transparent ml-4 w-full h-full"
-          placeholder="Message Body"
+          placeholder="Hello, ..........."
           name="body"
           // value=
           // onChange=
         />
       </div>
       <div className="flex space-x-8 items-center m-2 ml-4 ">
-        <div className="bg-blue-700 px-5 py-2 rounded-md flex items-center cursor-pointer">
+        <div className="bg-gradient-to-r from-[#6d77ad] to-[#011da8fc] w-38 px-5 py-2 rounded-md flex items-center cursor-pointer">
           Send
           <TiArrowSortedDown className="ml-4" />
         </div>

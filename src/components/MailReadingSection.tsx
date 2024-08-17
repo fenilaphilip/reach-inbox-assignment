@@ -3,6 +3,7 @@ import { useState } from "react";
 import { VscCircleFilled } from "react-icons/vsc";
 import { SlArrowDown } from "react-icons/sl";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { RiReplyFill } from "react-icons/ri";
 
 import RecentMail from "./RecentMail";
 import ReplyMail from "./ReplyMail";
@@ -31,9 +32,10 @@ export default function MailReadingSection({ mail }: any) {
                 <div className="flex flex-col justify-between min-h-screen p-5">
                   <div className="flex items-end align-bottom justify-between">
                     <button
-                      className="align-bottom px-5 py-2 text-sm font-bold tracking-wide text-white bg-blue-700 rounded-full focus:outline-none"
+                      className="bg-gradient-to-r from-[#6d77ad] to-[#011da8fc] px-5 py-2 rounded-md flex  justify-center items-center cursor-pointer w-38 text-xl text-white"
                       onClick={replyButtonhandler}
                     >
+                      <RiReplyFill size="1em" />
                       Reply
                     </button>
                   </div>
