@@ -3,27 +3,25 @@ import { CiSearch } from "react-icons/ci";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { TbReload } from "react-icons/tb";
 import MailReadingSection from "./MailReadingSection";
-import axios from "axios";
 import { useLocation } from "react-router-dom";
 import LoadMails from "./LoadMails";
-
-const url: string = process.env.REACT_APP_API_BASE_URL ?? "";
-const list_all_path = "/onebox/list";
+import OneboxApi, { Mail } from "../OneboxAPI";
 
 export default function Inbox() {
-  const [fetchedData, setFetchedData] = useState([]);
-  const [currentMail, setCurrentMail] = useState();
+  const [fetchedData, setFetchedData] = useState<Array<Mail>>([]);
+  const [currentMail, setCurrentMail] = useState<Mail | undefined>(undefined);
 
   const search = useLocation().search;
   const token = new URLSearchParams(search).get("token");
-  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  const oneBoxApi = new OneboxApi(token);
 
   useEffect(() => {
-    axios.get(url + list_all_path).then((response) => {
-      setFetchedData(response.data.data);
-      console.log(`Fetched data is ${JSON.stringify(response.data.data)}`);
-      setCurrentMail(response.data.data[0]);
-    });
+    async function load() {
+      const mails = await oneBoxApi.getAllMails();
+      setFetchedData(mails);
+      setCurrentMail(mails[0]);
+    }
+    load();
   }, []);
 
   function showSelectedMail(id: number) {
