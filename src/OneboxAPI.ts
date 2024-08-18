@@ -2,6 +2,7 @@ import axios from "axios";
 
 const url: string = process.env.REACT_APP_API_BASE_URL ?? "";
 const list_all_path = `${url}/onebox/list`;
+const fetch_thread_path = `${url}/onebox/messages/`;
 
 export interface Mail {
     "id": number;
@@ -51,4 +52,22 @@ export default class OneboxApi {
             throw err;
         }
     }
+
+    async getAllReplies(threadId: number): Promise<Array<Mail>> {
+        try {
+            const response = await axios.get(`${fetch_thread_path}/${threadId}`);
+            if (response.status === 200) {
+                const data = response.data;
+                console.debug(`Got ${JSON.stringify(data)} from thread fetching`);
+                return data.data;
+            } else {
+                console.error(`Got error response ${response}`);
+                throw new Error(`Got error response from one box status=${response.status}`);
+            }
+        } catch (err) {
+            console.error(err);
+            throw err;
+        }
+    }
+
 }
