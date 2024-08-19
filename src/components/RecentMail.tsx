@@ -11,16 +11,16 @@ export default function RecentMail({ mail }: any) {
 
   const search = useLocation().search;
   const token = new URLSearchParams(search).get("token");
-  const oneBoxApi = new OneboxApi(token);
 
   useEffect(() => {
+    const oneBoxApi = new OneboxApi(token);
     async function loadReplies() {
       setAllreplies(await oneBoxApi.getAllReplies(mail.threadId));
     }
     setShowAllReply(false);
 
     loadReplies();
-  }, [mail]);
+  }, [mail, token]);
 
   function viewReplyBtnHandler(id: number) {
     setShowAllReply(!showAllReply);

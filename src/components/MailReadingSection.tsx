@@ -14,11 +14,14 @@ import MoveMenu from "./MoveMenu";
 export default function MailReadingSection({ mail }: any) {
   const [showReplyPopUp, setShowReplyPopUp] = useState(false);
 
-  const handleKeyPress = useCallback((event: KeyboardEvent) => {
-    if (event.key === "r" || event.key === "R") {
-      setShowReplyPopUp(!showReplyPopUp);
-    }
-  }, []);
+  const handleKeyPress = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === "r" || event.key === "R") {
+        setShowReplyPopUp(!showReplyPopUp);
+      }
+    },
+    [showReplyPopUp, setShowReplyPopUp]
+  );
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyPress);

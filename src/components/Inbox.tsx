@@ -13,16 +13,16 @@ export default function Inbox() {
 
   const search = useLocation().search;
   const token = new URLSearchParams(search).get("token");
-  const oneBoxApi = new OneboxApi(token);
 
   useEffect(() => {
+    const oneBoxApi = new OneboxApi(token);
     async function load() {
       const mails = await oneBoxApi.getAllMails();
       setFetchedData(mails);
       setCurrentMail(mails[0]);
     }
     load();
-  }, []);
+  }, [token]);
 
   function showSelectedMail(id: number) {
     const currentEmail = Object.values(fetchedData).find(
