@@ -29,7 +29,6 @@ export default function Inbox() {
       (mail) => mail["threadId"] === id
     );
     setCurrentMail(currentEmail);
-    console.log("currentmail ", currentMail);
   }
 
   return (

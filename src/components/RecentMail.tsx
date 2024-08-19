@@ -44,6 +44,7 @@ export default function RecentMail({ mail }: any) {
           {allReplies.map((message) => {
             return (
               <Message
+                key={message.id}
                 when={message.sentAt}
                 subject={message.subject}
                 fromWho={message.fromEmail}

@@ -7,7 +7,6 @@ export default function MoveMenu() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   function handleMoveMenuToggle() {
     setIsOpen(!isOpen);
-    console.log("Toggled isOpen");
   }
 
   return (
