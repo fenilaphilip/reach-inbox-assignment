@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 import { VscCircleFilled } from "react-icons/vsc";
 import { SlArrowDown } from "react-icons/sl";
@@ -13,6 +13,19 @@ import MoveMenu from "./MoveMenu";
 
 export default function MailReadingSection({ mail }: any) {
   const [showReplyPopUp, setShowReplyPopUp] = useState(false);
+
+  const handleKeyPress = useCallback((event: KeyboardEvent) => {
+    if (event.key === "r" || event.key === "R") {
+      setShowReplyPopUp(!showReplyPopUp);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [handleKeyPress]);
 
   function replyButtonhandler() {
     setShowReplyPopUp((prev) => !prev);
