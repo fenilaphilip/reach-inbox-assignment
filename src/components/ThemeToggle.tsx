@@ -24,7 +24,7 @@ export default function ThemeToggle() {
             type="button"
             onClick={togglehandler}
             aria-label={darkMode ? "Toggle Dark Theme" : "Toggle Light Theme"}
-            className="bg-[#c6c7cb] dark:bg-gray-900 w-14 h-4 xl:w-14 xl:h-7 rounded-full p-1 flex justify-between items-center transition duration-300 ease-out"
+            className="bg-[#c6c7cb] dark:bg-gray-900  w-14 h-7 rounded-full p-1 flex justify-between items-center transition duration-300 ease-out"
           >
             {!darkMode && <FaMoon className="text-[#e6f336]" size={18} />}
             <div className="bg-white w-4 h-4 xl:w-5 xl:h-5 rounded-full shadow-md"></div>

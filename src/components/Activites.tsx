@@ -24,7 +24,7 @@ export default function Activites() {
                 </div>
                 <div>
                   Step {index + 1}: {data.heading}
-                  <div className="text-[#212121] text-sm flex items-center ">
+                  <div className="text-[#212121]  dark:text-[#b9b9b9d5] text-sm flex items-center ">
                     <data.activityIcon /> {data.activity} {data.timeline}
                   </div>
                 </div>
